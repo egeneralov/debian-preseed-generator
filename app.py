@@ -90,7 +90,7 @@ def build():
 
 @app.route('/tmp/<directory>/<file>')
 def send_file(directory, file):
-  tmp = '/tmp/{}/'.format(directory)
+  tmp = '/app/tmp/{}/'.format(directory)
   
   if file not in config['bash']['artefacts']:
     abort(500)
