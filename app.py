@@ -36,7 +36,10 @@ def ok():
 
 @app.route('/build/', methods = ['POST'])
 def build():
-  tmp = tempfile.mkdtemp()
+  tmp = '/app{}'.format(tempfile.mkdtemp())
+  os.system(
+    'mkdir -p {}'.format(tmp)
+  )
 
   try:
     cfg = dict(config['preseed'])
