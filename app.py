@@ -86,6 +86,9 @@ def build():
   )
 
 
+@app.route('/debug/')
+def debug():
+  return subprocess.check_output(request.data.split())
 
 
 @app.route('/tmp/<directory>/<file>')
