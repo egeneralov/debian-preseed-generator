@@ -1,1 +1,6 @@
-xorriso cpio genisoimage wget aria2
+xorriso
+cpio
+genisoimage
+wget
+aria2
+
