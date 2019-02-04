@@ -5,3 +5,4 @@ tests/initrd.gz
 tests/vmlinuz
 
 tests/test.img
+tmp
