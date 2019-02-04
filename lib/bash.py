@@ -1,10 +1,10 @@
 import json
 from jinja2 import Template
 
-def generate_bash(config, template = 'templates/generate.bash.j2'):
+def generate_bash(config, tmp, template = 'templates/generate.bash.j2'):
   with open(template) as f:
     template = Template(f.read())
-  return template.render(**config)
+  return template.render(**config, tmp=tmp)
 
 
 if __name__ == '__main__':

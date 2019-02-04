@@ -60,7 +60,7 @@ def build():
 
   with open('{}/run.sh'.format(tmp), 'w+') as f:
     f.write(
-      generate_bash(config['bash'])
+      generate_bash(config['bash'], tmp)
     )
   
   with cd(tmp):

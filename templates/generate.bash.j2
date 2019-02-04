@@ -1,4 +1,7 @@
-cat << EOF | bash -xe | tee {{ destination }}/../build.log
+#!/bin/bash -x
+
+mkdir -p {{ tmp }}
+cat << EOF | bash -xe | tee {{ tmp }}/build.log
 
 {% if install %}
 apt-get update -q
@@ -18,9 +21,9 @@ gzip {{ destination }}/install.amd/initrd
 
 chmod -w -R {{ destination }}/install.amd/
 cd {{ destination }} && (md5sum $(find -follow -type f) > md5sum.txt || echo 1) && cd ..
-genisoimage -r -J -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o {{ destination }}/../{{ output_filename }} {{ destination }}
+genisoimage -r -J -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o {{ tmp }}/{{ output_filename }} {{ destination }}
 
-cp {{ destination }}/install.amd/initrd.gz {{ destination }}/../
-cp {{ destination }}/install.amd/vmlinuz {{ destination }}/../
+cp {{ destination }}/install.amd/initrd.gz {{ tmp }}
+cp {{ destination }}/install.amd/vmlinuz {{ tmp }}
 
 EOF
