@@ -1,0 +1,6 @@
+__pycache__
+tests/*.iso
+tests/*.torrent
+tests/initrd.gz
+tests/vmlinuz
+

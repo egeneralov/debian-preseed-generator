@@ -1,0 +1,72 @@
+{
+  "locale": "en_US",
+  "keymap": "us",
+  "interface": {
+    "type": "auto"
+  },
+  "mirror": "httpredir.debian.org",
+  "root": {
+    "create": true,
+    "password": "egeneralov"
+  },
+  "user": {
+    "create": false
+  },
+  "clock": {
+    "utc": true,
+    "zone": "UTC",
+    "ntp": {
+      "enabled": true,
+      "server": "0.debian.pool.ntp.org"
+    }
+  },
+  "partman": {
+    "remove": {
+      "lvm": true,
+      "md": true
+    },
+    "method": "regular",
+    "recipe": "auto",
+    "expert_recipe": "root :: 40 300 100000000 ext4 $primary{ } $bootable{ } method{ format } format{ } use_filesystem{ } filesystem{ ext4 } mountpoint{ / } .",
+    "auto": true,
+    "noswap": true
+  },
+  "apt": {
+    "auto": true,
+    "upgrade": "full-upgrade",
+    "recommends": false,
+    "non_free": true,
+    "contrib": true,
+    "use_mirror": true,
+    "security_host": "security.debian.org",
+    "services_select": [
+      "security",
+      "updates"
+    ],
+    "include": [
+      "openssh-server",
+      "ca-certificates",
+      "curl",
+      "wget",
+      "acpid",
+      "acpi-support-base",
+      "python-pip"
+    ],
+    "popularity_participate": false
+  },
+  "grub": {
+    "bootdev": "/dev/sda",
+    "only_debian": true
+  },
+  "commands": {
+    "late": "in-target echo GRUB_CMDLINE_LINUX_DEFAULT=\"console=tty0 console=ttyS0,115200n8 serial\" >> /etc/default/grub; in-target update-grub;"
+  },
+  "reboot": "note",
+  "poweroff": true
+}
+
+
+
+
+
+

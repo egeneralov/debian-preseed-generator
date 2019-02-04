@@ -1,0 +1,26 @@
+cat << EOF | bash -xe | tee {{ destination }}/../build.log
+
+{% if install %}
+apt-get update -q
+apt-get install -yq {{ packages | join(" ") }}
+{% endif %}
+
+[ -f {{ torrent_file }} ] || wget {{ torrent_url }} -O {{ torrent_file }}
+[ -f {{ iso_src_file }} ] || aria2c {{ torrent_file }} --seed-time=0
+
+mkdir -p {{ destination }}
+xorriso -osirrox on -indev {{ iso_src_file }} -extract / {{ destination }}
+chmod +w -R {{ destination }}/install.amd/
+
+gunzip {{ destination }}/install.amd/initrd.gz
+echo preseed.cfg | cpio -H newc -o -A -F {{ destination }}/install.amd/initrd
+gzip {{ destination }}/install.amd/initrd
+
+chmod -w -R {{ destination }}/install.amd/
+cd {{ destination }} && (md5sum $(find -follow -type f) > md5sum.txt || echo 1) && cd ..
+genisoimage -r -J -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o {{ destination }}/../{{ output_filename }} {{ destination }}
+
+cp {{ destination }}/install.amd/initrd.gz {{ destination }}/../
+cp {{ destination }}/install.amd/vmlinuz {{ destination }}/../
+
+EOF
