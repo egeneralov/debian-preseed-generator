@@ -67,6 +67,7 @@ def build():
     os.system('bash run.sh')
 
   url = '{}/{}'.format(request.host_url, tmp).replace('///', '/')
+  url = url.replace('/app', '')
 
   answer = {
     "ok": True,
@@ -91,6 +92,7 @@ def debug():
   return subprocess.check_output(request.data.split())
 
 
+@app.route('/app/tmp/<directory>/<file>')
 @app.route('/tmp/<directory>/<file>')
 def send_file(directory, file):
   tmp = '/app/tmp/{}/'.format(directory)
