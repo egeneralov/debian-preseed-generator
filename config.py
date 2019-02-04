@@ -1,6 +1,6 @@
 config = {
   'bash': {
-    'install': False,
+    'install': True,
     'packages': [
       'xorriso',
       'cpio',

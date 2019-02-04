@@ -17,7 +17,7 @@ r = requests.post(
 
 
 print(r)
-print(dir(r))
+print(r.json())
 
 if not r.ok:
   if r.status_code == 400:
@@ -33,3 +33,5 @@ for url in r.json()['artefacts']:
       f.write(file_request.content)
   else:
     print(file_name, url, file_request.status_code)
+
+
