@@ -101,7 +101,8 @@ def send_file(directory, file):
 @app.route('/render/bash/')
 def render_bash():
   return generate_bash(
-    config['bash']
+    config['bash'],
+    tmp = '/app{}'.format(tempfile.mkdtemp())
   )
 
 
