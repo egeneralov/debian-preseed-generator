@@ -13,7 +13,7 @@ xorriso -osirrox on -indev {{ iso_src_file }} -extract / {{ destination }}
 chmod +w -R {{ destination }}/install.amd/
 
 gunzip {{ destination }}/install.amd/initrd.gz
-echo preseed.cfg | cpio -H newc -o -A -F {{ destination }}/install.amd/initrd
+echo preseed.cfg | /app/cpio -H newc -o -A -F {{ destination }}/install.amd/initrd
 gzip {{ destination }}/install.amd/initrd
 
 chmod -w -R {{ destination }}/install.amd/

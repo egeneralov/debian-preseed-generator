@@ -4,3 +4,4 @@ tests/*.torrent
 tests/initrd.gz
 tests/vmlinuz
 
+tests/test.img
