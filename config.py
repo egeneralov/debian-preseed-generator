@@ -9,16 +9,16 @@ config = {
       'aria2'
     ],
     'destination': './isofiles',
-    'torrent_url': 'https://cdimage.debian.org/debian-cd/current/amd64/bt-cd/debian-9.7.0-amd64-netinst.iso.torrent',
-    'torrent_file': 'debian-9.7.0-amd64-netinst.iso.torrent',
-    'iso_src_file': 'debian-9.7.0-amd64-netinst.iso',
-    'output_filename': 'preseed-debian-9.7.0-amd64-netinst.iso',
+    'torrent_url': 'https://cdimage.debian.org/debian-cd/current/amd64/bt-cd/debian-9.8.0-amd64-netinst.iso.torrent',
+    'torrent_file': 'debian-9.8.0-amd64-netinst.iso.torrent',
+    'iso_src_file': 'debian-9.8.0-amd64-netinst.iso',
+    'output_filename': 'preseed-debian-9.8.0-amd64-netinst.iso',
     'artefacts': [
       'vmlinuz',
       'initrd.gz',
-      'preseed-debian-9.7.0-amd64-netinst.iso',
-      'debian-9.7.0-amd64-netinst.iso',
-      'debian-9.7.0-amd64-netinst.iso.torrent',
+      'preseed-debian-9.8.0-amd64-netinst.iso',
+      'debian-9.8.0-amd64-netinst.iso',
+      'debian-9.8.0-amd64-netinst.iso.torrent',
       'preseed.cfg',
       'build.log'
     ]
