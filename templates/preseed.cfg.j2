@@ -10,6 +10,9 @@ d-i mirror/http/hostname string {{ mirror }}
 d-i mirror/http/directory string /debian
 d-i mirror/http/proxy string
 
+d-i netcfg/get_hostname {{ hostname }}
+d-i netcfg/get_domain string {{ domain }}
+
 {% if root["create"] %}
 d-i passwd/root-login boolean true
 d-i passwd/root-password password {{ root['password'] }}

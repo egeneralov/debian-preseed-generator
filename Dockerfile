@@ -1,7 +1,12 @@
-FROM python:3
+FROM debian:9
 
 RUN apt-get update -q && \
-apt-get install -yq xorriso cpio genisoimage wget aria2 && \
+apt-get install -yq python3-pip --no-install-recommends && \
+apt-get autoclean -yq && \
+apt-get clean -yq
+
+RUN apt-get update -q && \
+apt-get install -yq xorriso cpio genisoimage wget aria2 --no-install-recommends && \
 apt-get autoclean -yq && \
 apt-get clean -yq
 
@@ -15,4 +20,4 @@ ADD . .
 
 ENV PORT=8080
 
-CMD python app.py
+CMD python3 app.py

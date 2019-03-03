@@ -1,3 +1,9 @@
 tests
 .git
 .gitignore
+__pycache__
+Procfile
+Makefile
+Dockerfile
+Aptfile
+.dockerignore

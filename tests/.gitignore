@@ -1,6 +1,7 @@
-debian-9.7.0-amd64-netinst.iso
-debian-9.7.0-amd64-netinst.iso.torrent
+debian-9.8.0-amd64-netinst.iso
+debian-9.8.0-amd64-netinst.iso.torrent
 initrd.gz
-preseed-debian-9.7.0-amd64-netinst.iso
+preseed-debian-9.8.0-amd64-netinst.iso
 preseed.cfg
 vmlinuz
+build.log

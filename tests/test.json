@@ -7,7 +7,7 @@
   "mirror": "httpredir.debian.org",
   "root": {
     "create": true,
-    "password": "egeneralov"
+    "password": "ok"
   },
   "user": {
     "create": false
@@ -26,15 +26,15 @@
       "md": true
     },
     "method": "regular",
-    "recipe": "auto",
-    "expert_recipe": "root :: 40 300 100000000 ext4 $primary{ } $bootable{ } method{ format } format{ } use_filesystem{ } filesystem{ ext4 } mountpoint{ / } .",
+    "recipe": "root",
+    "expert_recipe": "root :: 500 10000 100000000 ext4 $primary{ } $bootable{ } method{ format } format{ } use_filesystem{ } filesystem{ ext4 } mountpoint{ / } .",
     "auto": true,
     "noswap": true
   },
   "apt": {
     "auto": true,
     "upgrade": "full-upgrade",
-    "recommends": false,
+    "recommends": true,
     "non_free": true,
     "contrib": true,
     "use_mirror": true,
@@ -45,12 +45,9 @@
     ],
     "include": [
       "openssh-server",
-      "ca-certificates",
-      "curl",
-      "wget",
-      "acpid",
-      "acpi-support-base",
-      "python-pip"
+      "ca-certificates", "curl", "wget",
+      "acpid", "acpi-support-base",
+      "python-pip", "cloud-init", "cloud-initramfs-growroot"
     ],
     "popularity_participate": false
   },
@@ -59,14 +56,8 @@
     "only_debian": true
   },
   "commands": {
-    "late": "in-target echo GRUB_CMDLINE_LINUX_DEFAULT=\"console=tty0 console=ttyS0,115200n8 serial\" >> /etc/default/grub; in-target update-grub;"
+    "late": "in-target echo GRUB_CMDLINE_LINUX_DEFAULT=\"console=tty0 console=ttyS0,115200n8 serial\" >> /etc/default/grub; in-target update-grub; in-target sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config;"
   },
   "reboot": "note",
   "poweroff": true
 }
-
-
-
-
-
-

@@ -20,10 +20,12 @@ config = {
       'debian-9.8.0-amd64-netinst.iso',
       'debian-9.8.0-amd64-netinst.iso.torrent',
       'preseed.cfg',
-      'build.log'
+#       'build.log'
     ]
   },
   'preseed': {
+    "hostname": "debian",
+    "domain": "debian.localdomain",
     "locale": "en_US",
     "keymap": "us",
     "interface": {

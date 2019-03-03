@@ -154,6 +154,11 @@ def render_preseed_post_to_json():
 
 
 if __name__ == '__main__':
+  url = 'https://cdimage.debian.org/debian-cd/9.8.0/amd64/iso-cd/debian-9.8.0-amd64-netinst.iso'
+  file_path = '/app/debian-9.8.0-amd64-netinst.iso'
+  cmd = '[ -f "{}" ] || wget {} -O {}'.format(file_path, url, file_path)
+  if os.system(cmd) != 0:
+    raise Exception('Failed to download {}'.format(url))
   app.run(
     port = os.environ.get('PORT', '8080'),
     host = '0.0.0.0',

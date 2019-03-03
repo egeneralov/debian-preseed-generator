@@ -18,15 +18,15 @@ if __name__ == '__main__':
       'aria2'
     ],
     'destination': './isofiles',
-    'torrent_url': 'https://cdimage.debian.org/debian-cd/current/amd64/bt-cd/debian-9.7.0-amd64-netinst.iso.torrent',
-    'torrent_file': 'debian-9.7.0-amd64-netinst.iso.torrent',
-    'iso_src_file': 'debian-9.7.0-amd64-netinst.iso',
-    'output_filename': 'preseed-debian-9.7.0-amd64-netinst.iso',
+    'torrent_url': 'https://cdimage.debian.org/debian-cd/current/amd64/bt-cd/debian-9.8.0-amd64-netinst.iso.torrent',
+    'torrent_file': 'debian-9.8.0-amd64-netinst.iso.torrent',
+    'iso_src_file': 'debian-9.8.0-amd64-netinst.iso',
+    'output_filename': 'preseed-debian-9.8.0-amd64-netinst.iso',
     'preseed_url': 'https://gitlab.com/egeneralov/debian-preseed-iso/raw/master/preseed.cfg',
     'artefacts': [
       'isofiles/install.amd/vmlinuz',
       'isofiles/install.amd/initrd.gz',
-      'preseed-debian-9.7.0-amd64-netinst.iso'
+      'preseed-debian-9.8.0-amd64-netinst.iso'
     ]
   }
   
