@@ -7,3 +7,4 @@ Makefile
 Dockerfile
 Aptfile
 .dockerignore
+./lib/__pycache__

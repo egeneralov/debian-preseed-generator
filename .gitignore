@@ -3,6 +3,6 @@ tests/*.iso
 tests/*.torrent
 tests/initrd.gz
 tests/vmlinuz
-
+./lib/__pycache__
 tests/test.img
 tmp
